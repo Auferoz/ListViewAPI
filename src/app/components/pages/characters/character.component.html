@@ -1,0 +1,19 @@
+<div class="card">
+    <div class="image">
+        <a [routerLink]="['/character-details', character.id]">
+            <img src="https://image.tmdb.org/t/p/w500{{character.poster_path}}" [alt]="character.name"
+                class="card-img-top img-fluid" />
+        </a>
+    </div>
+    <div class="card-inner bg-dark">
+        <div class="header">
+            <a [routerLink]="['/character-details', character.id]">
+                <h2 class="card-title text-white mb-1">{{ character.name }}</h2>
+            </a>
+            <div class="justify-content-start">
+                <p class="text-muted text-white m-0"><b>First Air Date:</b> {{ character.first_air_date | date }}</p>
+                <p class="text-muted text-white m-0"><b>Vote Average:</b> {{ character.vote_average | number }}</p>
+            </div>
+        </div>
+    </div>
+</div>

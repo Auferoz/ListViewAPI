@@ -1,0 +1,35 @@
+<div class="d-flex backdrop" *ngIf="character$ | async as character">
+  <img class="img-backdrop" src="https://image.tmdb.org/t/p/original{{character.backdrop_path}}" alt="">
+
+  <!-- Sidebar  -->
+  <div class="sidebar border-right" id="sidebar">
+    <img src="https://image.tmdb.org/t/p/w500{{character.poster_path}}" alt="">
+  </div>
+  <!-- end sidebar  -->
+
+  <!-- contenedor  -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12 my-2">
+        <div class="card">
+          <div class="card-inner bg-dark">
+            <div class="header">
+              <a [routerLink]="['/character-details', character.id]">
+                <h2 class="card-title text-white mb-1">{{ character.name }}</h2>
+              </a>
+              <div class="justify-content-start">
+                <p class="text-muted text-white m-0"><b>First Air Date:</b> {{ character.first_air_date | date }}</p>
+                <p class="text-muted text-white m-0"><b>Vote Average:</b> {{ character.vote_average | number }}</p>
+              </div>
+              <button (click)="onGoBack()" class="btn btn-primary btn-lg mt-3">
+                Back
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end contenedor  -->
+
+</div>
