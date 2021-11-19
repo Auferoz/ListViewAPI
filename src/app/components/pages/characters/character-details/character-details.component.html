@@ -1,4 +1,5 @@
 <div class="d-flex backdrop" *ngIf="character$ | async as character">
+
   <img class="img-backdrop" src="https://image.tmdb.org/t/p/original{{character.backdrop_path}}" alt="">
 
   <!-- Sidebar  -->
@@ -16,27 +17,20 @@
           <small class="h5 fw-light">{{ character.first_air_date | date: 'yyyy'}}</small>
         </h1>
       </div>
-    </div>
-  </div>
-  <!-- end contenedor  -->
-  <div class="row px-5">
-    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 my-2">
-      <div class="card">
-        <div class="card-inner bg-white">
-          <div class="header">
-            <h1 class="card-title text-dark mb-1">{{ character.name }}
-              <small>{{ character.first_air_date | date: 'yyyy'}}</small>
-            </h1>
-            <div class="justify-content-start">
-              <p class="text-muted text-dark m-0"><b>First Air Date:</b> {{ character.first_air_date | date }}</p>
-              <p class="text-muted text-dark m-0"><b>Vote Average:</b> {{ character.vote_average | number }}</p>
-            </div>
-          </div>
-        </div>
+      <div class="col-10">
+        <p class="h6 fw-normal m-0">
+          <b>AIRS</b> [Fridays at 12:00 AM] on [Apple TV+], <b>PREMIERED</b> [September 23, 2021]
+        </p>
+        <p class="h6 fw-normal m-0">
+          <b>RUNTIME</b> [55 mins], <b>TOTAL RUNTIME</b> [9hours, 10 mins], (10 episodes)
+        </p>
+        <p class="h6 fw-normal m-0">
+          <b>CREATOR</b> [David S. Goyer], COUNTRY [United States], LANGUAGE [English]
+        </p>
+        <p class="h6 fw-normal m-0">
+          <b>STUDIOS</b> [Skydance Television + 2 more], <b>GENRES</b> [Science Fiction, Drama, Fantasy]
+        </p>
       </div>
-      <button (click)="onGoBack()" class="btn btn-primary btn-lg mt-3">
-        Back
-      </button>
     </div>
   </div>
   <!-- end contenedor  -->
