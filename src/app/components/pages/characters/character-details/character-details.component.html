@@ -4,30 +4,39 @@
   <!-- Sidebar  -->
   <div class="sidebar border-right" id="sidebar">
     <img src="https://image.tmdb.org/t/p/w500{{character.poster_path}}" alt="">
+    <hr class="my-2" />
   </div>
   <!-- end sidebar  -->
 
-  <!-- contenedor  -->
-  <div class="container">
+  <!-- str contenedor  -->
+  <div class="bg-white-transparent p-3">
     <div class="row">
-      <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12 my-2">
-        <div class="card">
-          <div class="card-inner bg-dark">
-            <div class="header">
-              <a [routerLink]="['/character-details', character.id]">
-                <h2 class="card-title text-white mb-1">{{ character.name }}</h2>
-              </a>
-              <div class="justify-content-start">
-                <p class="text-muted text-white m-0"><b>First Air Date:</b> {{ character.first_air_date | date }}</p>
-                <p class="text-muted text-white m-0"><b>Vote Average:</b> {{ character.vote_average | number }}</p>
-              </div>
-              <button (click)="onGoBack()" class="btn btn-primary btn-lg mt-3">
-                Back
-              </button>
+      <div class="col-12">
+        <h1 class="card-title text-dark">{{ character.name}}
+          <small class="h5 fw-light">{{ character.first_air_date | date: 'yyyy'}}</small>
+        </h1>
+      </div>
+    </div>
+  </div>
+  <!-- end contenedor  -->
+  <div class="row px-5">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 my-2">
+      <div class="card">
+        <div class="card-inner bg-white">
+          <div class="header">
+            <h1 class="card-title text-dark mb-1">{{ character.name }}
+              <small>{{ character.first_air_date | date: 'yyyy'}}</small>
+            </h1>
+            <div class="justify-content-start">
+              <p class="text-muted text-dark m-0"><b>First Air Date:</b> {{ character.first_air_date | date }}</p>
+              <p class="text-muted text-dark m-0"><b>Vote Average:</b> {{ character.vote_average | number }}</p>
             </div>
           </div>
         </div>
       </div>
+      <button (click)="onGoBack()" class="btn btn-primary btn-lg mt-3">
+        Back
+      </button>
     </div>
   </div>
   <!-- end contenedor  -->
