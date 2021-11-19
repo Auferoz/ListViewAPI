@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row" infinite-scroll (scrolled)="onScrollDown()">
-    <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12 my-2" *ngFor="let character of characters">
+    <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12" *ngFor="let character of characters">
       <app-character [character]="character"></app-character>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12 mt-5 container-notFound" *ngIf="characters.length <= 0">
