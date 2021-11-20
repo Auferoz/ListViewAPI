@@ -1,34 +1,19 @@
-#sidebar {
-    height: 100%;
-    min-width: 180px;
-}
-
-.sidebar > img {
-    width: 280px;
-    margin: 1rem;
-    border: 1px solid #fff;
-}
-
-.backdrop .img-backdrop {
+.backdrop .image-backdrop {
     position: absolute;
     left: 0;
     top: 0;
+    opacity: 0.7;
     width: 100%;
-    height: auto;
-    opacity: 0.6;
-}
-
-.backdrop .sidebar {
-    position: relative;
-    z-index: 2;
-}
+    height: 100vh;
+    object-fit: cover;
+  }
 
 .card {
   margin: 0px !important;
 }
 
 .bg-white-transparent {
-  background-color: rgb(1 138 255 / 30%) !important;
+  background-color: rgb(241 241 241 / 70%);
 }
 
 .fw-light {
@@ -37,4 +22,8 @@
 
 .fw-normal {
   font-weight: 400!important;
+}
+
+.img-fuid {
+  width: 100%;
 }

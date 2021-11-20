@@ -1,16 +1,16 @@
-<div class="d-flex backdrop" *ngIf="character$ | async as character">
+<!-- <div class="d-flex backdrop" *ngIf="character$ | async as character">
 
-  <img class="img-backdrop" src="https://image.tmdb.org/t/p/original{{character.backdrop_path}}" alt="">
+  <img class="img-backdrop" src="https://image.tmdb.org/t/p/original{{character.backdrop_path}}" alt=""> -->
 
   <!-- Sidebar  -->
-  <div class="sidebar border-right" id="sidebar">
+  <!-- <div class="sidebar border-right" id="sidebar">
     <img src="https://image.tmdb.org/t/p/w500{{character.poster_path}}" alt="">
     <hr class="my-2" />
-  </div>
+  </div> -->
   <!-- end sidebar  -->
 
   <!-- str contenedor  -->
-  <div class="bg-white-transparent p-3">
+  <!-- <div class="bg-white-transparent p-3">
     <div class="row">
       <div class="col-12">
         <h1 class="card-title text-dark">{{ character.name}}
@@ -32,7 +32,59 @@
         </p>
       </div>
     </div>
-  </div>
+  </div> -->
   <!-- end contenedor  -->
+<!-- 
+</div> -->
 
-</div>
+<section class="container backdrop mt-5" *ngIf="character$ | async as character">
+  <img src="https://image.tmdb.org/t/p/original{{character.backdrop_path}}" [alt]="character.name" class="image-backdrop">
+  <div class="row border border-dark">
+    <div class="col-3 bg-white-transparent border-right border-dark">
+      <img src="https://image.tmdb.org/t/p/w500{{character.poster_path}}" [alt]="character.name" class="img-fuid my-3">
+    </div>
+    <div class="col-9 bg-white-transparent border-start-0 border-dark">
+        <div class="row">
+          <div class="col-12">
+            <h1 class="card-title text-dark">{{ character.name}}
+              <small class="h5 fw-light">{{ character.first_air_date | date: 'yyyy'}}</small>
+            </h1>
+          </div>
+          <div class="col-12">
+            <p class="h6 fw-normal mb-1">
+              <b>Airs:</b> {{character.networks[0].name}}
+            </p>
+            <p class="h6 fw-normal mb-1">
+              <b>Premiered:</b> {{character.first_air_date}}
+            </p>
+            <p class="h6 fw-normal mb-1">
+              <b>Runtime:</b> [55 mins]
+            </p>
+            <p class="h6 fw-normal mb-1">
+              <b>Total Runtime:</b> [9hours, 10 mins], ({{character.episode_run_time}} episodes)
+            </p>
+            <p class="h6 fw-normal mb-1">
+              <b>Creator:</b> {{character.created_by[0].name}}, {{character.created_by[1].name}}
+            </p>
+            <p class="h6 fw-normal mb-1">
+              <b>Country:</b> {{ character.origin_country }} <span class="flag-icon flag-icon-us"></span>
+            </p>
+            <p class="h6 fw-normal mb-1">
+              <b>Language:</b> {{ character.spoken_languages[0].english_name}}
+            </p>
+            <p class="h6 fw-normal mb-1">
+              <b>Genres:</b> {{character.Genre.name}}
+            </p>
+            <p class="h6 fw-normal mb-1">
+              <b>Status:</b> {{character.status}}
+            </p>
+          </div>
+          <div class="col-12">
+            <button (click)="onGoBack()" class="btn btn-dark btn-lg btn-sm mt-3">
+              Back
+            </button>
+          </div>
+        </div>
+    </div>
+  </div>
+</section>

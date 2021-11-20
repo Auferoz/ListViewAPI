@@ -2,3 +2,16 @@
     width: 100% !important;
     object-fit: cover;
 }
+
+.mask-background {
+    background-color: rgba(251, 251, 251, 0.15);
+}
+
+.card {
+    opacity: 0.8;
+    cursor: pointer;
+  
+    &:hover {
+      opacity: 1;
+    }
+}

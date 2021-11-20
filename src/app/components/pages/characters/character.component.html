@@ -1,4 +1,4 @@
-<div class="card">
+<!-- <div class="card">
     <div class="image">
         <a [routerLink]="['/character-details', character.id]">
             <img src="https://image.tmdb.org/t/p/w500{{character.poster_path}}" [alt]="character.name"
@@ -6,9 +6,9 @@
         </a>
     </div>
     <div class="card-inner bg-dark">
-        <div class="header">
+        <div class="card-header">
             <a [routerLink]="['/character-details', character.id]">
-                <h2 class="card-title text-white mb-1">{{ character.name }}</h2>
+                <h3 class="card-title text-white mb-1">{{ character.name }}</h3>
             </a>
             <div class="justify-content-start">
                 <p class="text-muted text-white m-0"><b>First Air Date:</b> {{ character.first_air_date | date }}</p>
@@ -16,4 +16,21 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
+
+
+<div class="card" [routerLink]="['/character-details', character.id]">
+    <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+      <img src="https://image.tmdb.org/t/p/w500{{character.poster_path}}" [alt]="character.name" class="img-fluid" />
+      <a [routerLink]="['/character-details', character.id]">
+        <div class="mask mask-background"></div>
+      </a>
+    </div>
+    <div class="card-body border-bottom py-2">
+      <h5 class="card-title m-0">{{character.name}}</h5>
+    </div>
+    <div class="card-body pt-2">
+      <p class="text-muted text-white m-0"><b>First Air Date:</b> {{ character.first_air_date | date }}</p>
+      <p class="text-muted text-white m-0"><b>Vote Average:</b> {{ character.vote_average | number }}</p>
+    </div>
+  </div>
