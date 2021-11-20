@@ -39,15 +39,15 @@
 
 <section class="container backdrop mt-5" *ngIf="character$ | async as character">
   <img src="https://image.tmdb.org/t/p/original{{character.backdrop_path}}" [alt]="character.name" class="image-backdrop">
-  <div class="row border border-dark">
-    <div class="col-3 bg-white-transparent border-right border-dark">
-      <img src="https://image.tmdb.org/t/p/w500{{character.poster_path}}" [alt]="character.name" class="img-fuid my-3">
+  <div class="row">
+    <div class="col-3 bg-white-transparent border border-right border-dark border-rounded">
+      <img src="https://image.tmdb.org/t/p/w500{{character.poster_path}}" [alt]="character.name" class="img-fuid my-3 border-rounded">
     </div>
-    <div class="col-9 bg-white-transparent border-start-0 border-dark">
+    <div class="col-8 bg-white-transparent border border-dark border-rounded ml-1">
         <div class="row">
           <div class="col-12">
-            <h1 class="card-title text-dark">{{ character.name}}
-              <small class="h5 fw-light">{{ character.first_air_date | date: 'yyyy'}}</small>
+            <h1 class="card-title text-dark">{{character.name}}
+              <small class="h6 fw-light">[{{ character.first_air_date | date: 'yyyy'}}]</small>
             </h1>
           </div>
           <div class="col-12">
@@ -74,6 +74,9 @@
             </p>
             <p class="h6 fw-normal mb-1">
               <b>Genres:</b> {{character.Genre.name}}
+            </p>
+            <p class="h6 fw-normal mb-1">
+              <b>Studios:</b> {{character.production_companies.Networks[0].name}}
             </p>
             <p class="h6 fw-normal mb-1">
               <b>Status:</b> {{character.status}}

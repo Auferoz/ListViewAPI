@@ -1,59 +1,6 @@
 export interface Character {
-  id: number;
-  name: string;
-  image: string;
-  species: string;
-  gender: string;
-  created: string;
-  status: string;
-}
-
-export interface Character {
-  average_rating: number;
-  backdrop_path:  null;
-  comments:       { [key: string]: null | string };
-  created_by:     CreatedBy;
-  description:    string;
-  id:             number;
-  iso_3166_1:     string;
-  iso_639_1:      string;
-  name:           string;
-  object_ids:     { [key: string]: null | string };
-  page:           number;
-  poster_path:    null;
-  public:         boolean;
-  results:        Result[];
-  revenue:        number;
-  runtime:        number;
-  sort_by:        string;
-  total_pages:    number;
-  total_results:  number;
-}
-
-export interface CreatedBy {
-  gravatar_hash: string;
-  id:            string;
-  name:          string;
-  username:      string;
-}
-
-export interface Result {
-  backdrop_path:     string;
-  first_air_date:    Date;
-  genre_ids:         number[];
-  id:                number;
-  media_type:        string;
-  name:              string;
-  origin_country:    string[];
-  original_language: string;
-  original_name:     string;
-  overview:          string;
-  popularity:        number;
-  poster_path:       string;
-  vote_average:      number;
-  vote_count:        number;
-}
-export interface Character {
+  backdrop_path:        string;
+  created_by:           CreatedBy[];
   episode_run_time:     number[];
   first_air_date:       Date;
   genres:               Genre[];
@@ -73,6 +20,7 @@ export interface Character {
   original_name:        string;
   overview:             string;
   popularity:           number;
+  poster_path:          string;
   production_companies: Network[];
   production_countries: ProductionCountry[];
   seasons:              Season[];
@@ -85,6 +33,7 @@ export interface Character {
 }
 
 export interface CreatedBy {
+  id:           number;
   credit_id:    string;
   name:         string;
   gender:       number;
@@ -112,7 +61,7 @@ export interface LastEpisodeToAir {
 export interface Network {
   name:           string;
   id:             number;
-  logo_path:      null | string;
+  logo_path:      string;
   origin_country: string;
 }
 

@@ -1,3 +1,7 @@
+div {
+  font-family: 'Montserrat', sans-serif;
+}
+
 .backdrop .image-backdrop {
     position: absolute;
     left: 0;
@@ -12,9 +16,15 @@
   margin: 0px !important;
 }
 
+.border-rounded {
+  border-radius: 20px;
+}
+
 .bg-white-transparent {
   background-color: rgb(241 241 241 / 70%);
+  border-radius: 20px;
 }
+
 
 .fw-light {
   font-weight: 300!important;
