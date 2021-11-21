@@ -1,54 +1,67 @@
-<section class="container backdrop d-flex align-items-center" *ngIf="character$ | async as character">
-  <img src="https://image.tmdb.org/t/p/original{{character.backdrop_path}}" [alt]="character.name" class="image-backdrop">
-  <div class="row">
-    <div class="col-3 bg-white-transparent border border-right border-dark border-rounded">
-      <img src="https://image.tmdb.org/t/p/w500{{character.poster_path}}" [alt]="character.name" class="img-fuid my-3 border-rounded">
-    </div>
-    <div class="col-8 bg-white-transparent border border-dark border-rounded ml-1">
-        <div class="row">
-          <div class="col-12">
-            <h1 class="card-title text-dark">{{character.original_title}}
-              <small class="h6 fw-light">[{{ character.release_date | date: 'yyyy'}}]</small>
-            </h1>
-          </div>
-          <div class="col-12">
-            <p class="h6 fw-normal mb-1">
-              <b>Airs:</b> {{character.networks[0].name}}
-            </p>
-            <p class="h6 fw-normal mb-1">
-              <b>Premiered:</b> {{character.release_date}} 
-            </p>
-            <p class="h6 fw-normal mb-1">
-              <b>Runtime:</b> [55 mins]
-            </p>
-            <p class="h6 fw-normal mb-1">
-              <b>Total Runtime:</b> [9hours, 10 mins], ({{character.episode_run_time}} episodes)
-            </p>
-            <p class="h6 fw-normal mb-1">
-              <b>Creator:</b> {{character.created_by[0].name}}, {{character.created_by[1].name}}
-            </p>
-            <p class="h6 fw-normal mb-1">
-              <b>Country:</b> {{ character.origin_country }}
-            </p>
-            <p class="h6 fw-normal mb-1">
-              <b>Language:</b> {{ character.spoken_languages[0].english_name}}
-            </p>
-            <p class="h6 fw-normal mb-1">
-              <b>Genres:</b> {{character.Genre.name}}
-            </p>
-            <p class="h6 fw-normal mb-1">
-              <b>Studios:</b> {{character.production_companies.Networks[0].name}}
-            </p>
-            <p class="h6 fw-normal mb-1">
-              <b>Status:</b> {{character.status}}
-            </p>
-          </div>
-          <div class="col-12">
-            <button (click)="onGoBack()" class="btn btn-dark btn-lg btn-sm mt-3">
-              Back
-            </button>
-          </div>
+<!-- 
+  <div class="d-flex backdrop" *ngIf="character$ | async as character">
+
+    <img class="img-backdrop" src="https://image.tmdb.org/t/p/original{{character.backdrop_path}}" alt="">
+
+    <div class="sidebar border-right" id="sidebar">
+      <img src="https://image.tmdb.org/t/p/w500{{character.poster_path}}" alt="">
+      <hr class="my-2" />
+    </div> 
+
+    <div class="bg-white-transparent p-3">
+      <div class="row">
+        <div class="col-12">
+          <h1 class="card-title text-dark">{{ character.name}}
+            <small class="h5 fw-light">{{ character.first_air_date | date: 'yyyy'}}</small>
+          </h1>
         </div>
+        <div class="col-10">
+          <p class="h6 fw-normal m-0">
+            <b>AIRS</b> [Fridays at 12:00 AM] on [Apple TV+], <b>PREMIERED</b> [September 23, 2021]
+          </p>
+          <p class="h6 fw-normal m-0">
+            <b>RUNTIME</b> [55 mins], <b>TOTAL RUNTIME</b> [9hours, 10 mins], (10 episodes)
+          </p>
+          <p class="h6 fw-normal m-0">
+            <b>CREATOR</b> [David S. Goyer], COUNTRY [United States], LANGUAGE [English]
+          </p>
+          <p class="h6 fw-normal m-0">
+            <b>STUDIOS</b> [Skydance Television + 2 more], <b>GENRES</b> [Science Fiction, Drama, Fantasy]
+          </p>
+        </div>
+      </div>
+    </div>
+  </div> 
+-->
+
+<section class="container backdrop d-flex align-items-center" *ngIf="character$ | async as character">
+  <img class="img-backdrop" src="https://image.tmdb.org/t/p/original{{character.backdrop_path}}" alt="">
+  <div class="row">
+    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-3 d-none d-sm-block">
+      <div class="card my-3 border-rounded">
+        <img class="border-rounded" src="https://image.tmdb.org/t/p/w500{{character.poster_path}}" [alt]="character.title">
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-8 col-md-8 col-lg-9">
+      <div class="card my-3 p-3">
+        <div class="border border-rounded">
+          <h1 class="card-title text-dark p-3">{{ character.title }}
+            <small class="h6 fw-light">[{{ character.release_date | date: 'yyyy'}}]</small>
+          </h1>
+          <p class="h6 fw-normal px-3 pt-1 mb-1">
+            <b>Genres:</b> {{character.genres[0].name}}, {{character.genres[1].name}}, {{character.genres[2].name}}
+          </p>
+          <p class="h6 fw-normal px-3 pt-1 mb-1">
+            <b>Overview:</b> {{character.overview}}
+          </p>
+          <p class="h6 fw-normal px-3 pt-1 pb-3 mb-1">
+            <b>Runtime:</b> {{character.runtime}} Minutes
+          </p>
+        </div>
+        <button (click)="onGoBack()" class="btn btn-dark btn-sm me-auto mt-2">
+          Back
+        </button>
+      </div>
     </div>
   </div>
 </section>

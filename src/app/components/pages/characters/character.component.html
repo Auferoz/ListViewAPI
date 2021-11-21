@@ -1,11 +1,11 @@
-<div class="card card-rounded" [routerLink]="['/character-details', character.id]">
+<div class="card card-rounded border" [routerLink]="['/character-details', character.id]">
     <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
       <img src="https://image.tmdb.org/t/p/w500{{character.poster_path}}" [alt]="character.name" class="img-fluid card-rounded" />
       <a [routerLink]="['/character-details', character.id]">
         <div class="mask mask-background"></div>
       </a>
     </div>
-    <div class="card-body border-bottom py-2" data-bs-toggle="tooltip" data-bs-placement="top" [title]="character.title">
+    <div class="card-body border-bottom py-2" data-mdb-toggle="tooltip" title="Title: {{character.title}}">
       <h5 class="card-title text-nowrap m-0" >{{character.original_title}}</h5>
     </div>
     <div class="card-body pt-2">

@@ -34,6 +34,13 @@ export interface Character {
   original_title:       string;
   release_date:         string;
   title:                string;
+  adult:                 boolean;
+  belongs_to_collection: BelongsToCollection;
+  budget:                number;
+  imdb_id:               string;
+  revenue:               number;
+  runtime:               number;
+  video:                 boolean;
 }
 
 export interface CreatedBy {
@@ -82,6 +89,36 @@ export interface Season {
   overview:      string;
   poster_path:   string;
   season_number: number;
+}
+
+export interface SpokenLanguage {
+  english_name: string;
+  iso_639_1:    string;
+  name:         string;
+}
+
+export interface BelongsToCollection {
+  id:            number;
+  name:          string;
+  poster_path:   string;
+  backdrop_path: string;
+}
+
+export interface Genre {
+  id:   number;
+  name: string;
+}
+
+export interface ProductionCompany {
+  id:             number;
+  logo_path:      null | string;
+  name:           string;
+  origin_country: string;
+}
+
+export interface ProductionCountry {
+  iso_3166_1: string;
+  name:       string;
 }
 
 export interface SpokenLanguage {
