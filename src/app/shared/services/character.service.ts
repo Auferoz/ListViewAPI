@@ -16,7 +16,10 @@ export class CharacterService {
 
   constructor(private http: HttpClient) {}
 
-  searchCharacters(query = '', page = 0, list = '7113210', api_key = '457643c75832b5d6f6c66e10f260618b'):Observable<Character[] | TrackHttpError> {
+    // const id_series = '7113210';
+    // const id_movies = '7114017';
+
+  searchCharacters(query = '', page = 0, list = '7114017', api_key = '457643c75832b5d6f6c66e10f260618b'):Observable<Character[] | TrackHttpError> {
     const filter = `${environment.baseUrlAPI}/4/list/${list}?api_key=${api_key}`;
     console.log(filter);
     return this.http.get<Character[]>(filter)
@@ -24,7 +27,7 @@ export class CharacterService {
   }
 
   getDetails(id: number) {
-    return this.http.get<Character>(`${environment.baseUrlAPI}/3/tv/${id}?api_key=457643c75832b5d6f6c66e10f260618b`)
+    return this.http.get<Character>(`${environment.baseUrlAPI}/3/movie/${id}?api_key=457643c75832b5d6f6c66e10f260618b`)
     .pipe(catchError((err) => this.handleHttpError(err)));
   }
 

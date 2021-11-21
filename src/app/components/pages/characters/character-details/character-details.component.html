@@ -1,43 +1,4 @@
-<!-- <div class="d-flex backdrop" *ngIf="character$ | async as character">
-
-  <img class="img-backdrop" src="https://image.tmdb.org/t/p/original{{character.backdrop_path}}" alt=""> -->
-
-  <!-- Sidebar  -->
-  <!-- <div class="sidebar border-right" id="sidebar">
-    <img src="https://image.tmdb.org/t/p/w500{{character.poster_path}}" alt="">
-    <hr class="my-2" />
-  </div> -->
-  <!-- end sidebar  -->
-
-  <!-- str contenedor  -->
-  <!-- <div class="bg-white-transparent p-3">
-    <div class="row">
-      <div class="col-12">
-        <h1 class="card-title text-dark">{{ character.name}}
-          <small class="h5 fw-light">{{ character.first_air_date | date: 'yyyy'}}</small>
-        </h1>
-      </div>
-      <div class="col-10">
-        <p class="h6 fw-normal m-0">
-          <b>AIRS</b> [Fridays at 12:00 AM] on [Apple TV+], <b>PREMIERED</b> [September 23, 2021]
-        </p>
-        <p class="h6 fw-normal m-0">
-          <b>RUNTIME</b> [55 mins], <b>TOTAL RUNTIME</b> [9hours, 10 mins], (10 episodes)
-        </p>
-        <p class="h6 fw-normal m-0">
-          <b>CREATOR</b> [David S. Goyer], COUNTRY [United States], LANGUAGE [English]
-        </p>
-        <p class="h6 fw-normal m-0">
-          <b>STUDIOS</b> [Skydance Television + 2 more], <b>GENRES</b> [Science Fiction, Drama, Fantasy]
-        </p>
-      </div>
-    </div>
-  </div> -->
-  <!-- end contenedor  -->
-<!-- 
-</div> -->
-
-<section class="container backdrop mt-5" *ngIf="character$ | async as character">
+<section class="container backdrop d-flex align-items-center" *ngIf="character$ | async as character">
   <img src="https://image.tmdb.org/t/p/original{{character.backdrop_path}}" [alt]="character.name" class="image-backdrop">
   <div class="row">
     <div class="col-3 bg-white-transparent border border-right border-dark border-rounded">
@@ -46,8 +7,8 @@
     <div class="col-8 bg-white-transparent border border-dark border-rounded ml-1">
         <div class="row">
           <div class="col-12">
-            <h1 class="card-title text-dark">{{character.name}}
-              <small class="h6 fw-light">[{{ character.first_air_date | date: 'yyyy'}}]</small>
+            <h1 class="card-title text-dark">{{character.original_title}}
+              <small class="h6 fw-light">[{{ character.release_date | date: 'yyyy'}}]</small>
             </h1>
           </div>
           <div class="col-12">
@@ -55,7 +16,7 @@
               <b>Airs:</b> {{character.networks[0].name}}
             </p>
             <p class="h6 fw-normal mb-1">
-              <b>Premiered:</b> {{character.first_air_date}}
+              <b>Premiered:</b> {{character.release_date}} 
             </p>
             <p class="h6 fw-normal mb-1">
               <b>Runtime:</b> [55 mins]
@@ -67,7 +28,7 @@
               <b>Creator:</b> {{character.created_by[0].name}}, {{character.created_by[1].name}}
             </p>
             <p class="h6 fw-normal mb-1">
-              <b>Country:</b> {{ character.origin_country }} <span class="flag-icon flag-icon-us"></span>
+              <b>Country:</b> {{ character.origin_country }}
             </p>
             <p class="h6 fw-normal mb-1">
               <b>Language:</b> {{ character.spoken_languages[0].english_name}}

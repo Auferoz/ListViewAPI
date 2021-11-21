@@ -30,6 +30,10 @@ export interface Character {
   type:                 string;
   vote_average:         number;
   vote_count:           number;
+
+  original_title:       string;
+  release_date:         string;
+  title:                string;
 }
 
 export interface CreatedBy {
